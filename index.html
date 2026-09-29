@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#121044" />
+  <title>Поле маркетинговых чудес · Marketing × IT</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="broadcast.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <div class="studio-top-glow" aria-hidden="true"></div>
+  <div id="introScreen" class="intro-screen hidden" role="dialog" aria-modal="true" aria-label="Заставка игры">
+    <div class="intro-rays" aria-hidden="true"></div>
+    <div class="intro-content">
+      <div class="intro-overline">КАПИТАЛ-ШОУ · СПЕЦВЫПУСК</div>
+      <div class="show-logo intro-logo" aria-label="Поле маркетинговых чудес"><span>ПОЛЕ</span><strong>МАРКЕТИНГОВЫХ</strong><b>ЧУДЕС!</b></div>
+      <div class="intro-edition">MARKETING <span>×</span> IT</div>
+      <p class="intro-tagline">Барабан, три команды и десять слов из цифрового мира</p>
+      <div class="intro-controls"><button id="introStartBtn" class="intro-start">▶ &nbsp; НАЧАТЬ ИГРУ</button><button id="introSkipBtn" class="intro-skip">Войти без заставки</button></div>
+      <div class="intro-sound-note">♫ Фоновую музыку и эффекты можно выключить отдельно</div>
+    </div>
+    <div class="intro-host"><img src="assets/leonid-yakubovich.jpg" alt="Леонид Якубович" /><div class="intro-host-label">ЛЕОНИД АРКАДЬЕВИЧ <strong>«ДА ЛАДНО?!»</strong></div></div>
+    <div class="intro-disclaimer">* Неофициальная учебная адаптация</div>
+  </div>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand"><div class="brand-icon">✳</div><div><div class="brand-name">ПОЛЕ МАРКЕТИНГОВЫХ ЧУДЕС</div><div class="brand-sub">КАПИТАЛ-ШОУ <span>×</span> DIGITAL EDITION</div></div></div>
+      <div class="topbar-right"><span class="live-pill"><i></i> ИГРА В ЭФИРЕ</span><button id="rulesBtn" class="icon-text-btn">◎ <span>Правила</span></button><button id="musicBtn" class="icon-btn" aria-label="Выключить фоновую музыку" title="Выключить фоновую музыку">♫</button><button id="soundBtn" class="icon-btn" aria-label="Выключить все звуки" title="Выключить все звуки">◖</button></div>
+    </header>
+
+    <main class="layout">
+      <section class="main-column">
+        <div class="hero-line"><div class="eyebrow"><span class="eyebrow-rule"></span> СПЕЦВЫПУСК: МАРКЕТИНГ И ИТ</div><div class="timer-wrap"><span class="timer-label">СЕКУНДОМЕР</span><button id="timerBtn" class="timer-button" title="Пауза / продолжить секундомер"><span id="timerText">00:00</span><small id="timerIcon">▷</small></button></div></div>
+        <div class="round-head"><div><div id="roundKicker" class="round-kicker">РАУНД 01 / 10 <span>•</span> УРОВЕНЬ 1</div><h1>Назовите термин<span class="gold-dot">.</span></h1></div><div id="multiplierBadge" class="multiplier-badge">×1 <small>МНОЖИТЕЛЬ</small></div></div>
+        <div class="case-card"><div class="case-icon">✦</div><div><div class="card-label">ВОПРОС РАУНДА</div><p id="clueText"></p></div><div class="case-count" id="clueNumber">01</div></div>
+        <div class="word-panel"><div class="word-top"><span>ЗАГАДАННОЕ СЛОВО</span><span id="wordLength"></span></div><div id="wordBoard" class="word-board"></div><div class="used-line"><span>ИСПОЛЬЗОВАННЫЕ БУКВЫ</span><div id="usedLetters" class="used-letters">—</div></div></div>
+        <div class="play-area"><div class="wheel-frame"><div class="wheel-pointer"></div><div id="wheel" class="wheel"></div><div id="wheelLabels" class="wheel-labels" aria-hidden="true"></div><div class="wheel-center"><span>✳</span></div></div><div class="action-card"><div class="action-top"><span class="card-label">СЕЙЧАС ИГРАЕТ</span><span id="turnCounter" class="turn-counter"></span></div><div id="activeTeamName" class="active-team-name"></div><p id="statusText" class="status-text"></p><button id="spinBtn" class="primary-btn"><span>↻</span> КРУТИТЬ БАРАБАН</button><form id="letterForm" class="letter-form hidden"><input id="letterInput" maxlength="1" autocomplete="off" placeholder="Буква" aria-label="Назвать букву" /><button type="submit">ОТКРЫТЬ БУКВУ ↗</button></form><button id="guessBtn" class="secondary-btn" disabled>НАЗВАТЬ СЛОВО ЦЕЛИКОМ <span>↗</span></button><div id="guessHint" class="guess-hint"></div></div></div>
+      </section>
+      <aside class="sidebar"><div class="side-section-title"><span>◈</span> ТАБЛО КОМАНД <small>03 КОМАНДЫ</small></div><div id="teams" class="team-list"></div><div class="host-card"><div class="host-photo"><img src="assets/leonid-yakubovich.jpg" alt="Портрет Леонида Якубовича" /></div><div class="host-copy"><span>ГОСТЬ СТУДИИ</span><strong>Леонид Аркадьевич</strong><button id="memeBtn" type="button">▶ ДА ЛАДНО?!</button></div></div><div class="operator-card"><div class="operator-title"><span>⌘</span> ПУЛЬТ ВЕДУЩЕГО</div><p>Управление раундами и счётом</p><button id="nextBtn" class="control-btn gold-control" disabled>СЛЕДУЮЩИЙ РАУНД <span>→</span></button><button id="finishBtn" class="control-btn" disabled>ЗАВЕРШИТЬ ИГРУ <span>□</span></button><button id="skipBtn" class="control-btn subtle-control">ОТКРЫТЬ И ПРОПУСТИТЬ <span>↗</span></button><div class="divider"></div><button id="adjustBtn" class="text-control">± КОРРЕКТИРОВАТЬ ОЧКИ</button><button id="resetBtn" class="text-control danger">↺ НАЧАТЬ ЗАНОВО</button></div><div class="footer-note"><span>✳</span> УЧЕБНАЯ АДАПТАЦИЯ · НЕ СВЯЗАНА С ПЕРВЫМ КАНАЛОМ</div></aside>
+    </main>
+  </div>
+  <div id="modalRoot" class="modal-root hidden"></div>
+  <div id="toast" class="toast hidden"></div>
+  <div id="hostReaction" class="host-reaction hidden" role="status" aria-live="polite"><img src="assets/leonid-yakubovich.jpg" alt="" /><div><small>ЛЕОНИД АРКАДЬЕВИЧ ГОВОРИТ</small><strong>ДА ЛАДНО?!</strong></div></div>
+  <script src="vendor/spin-wheel-iife.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
